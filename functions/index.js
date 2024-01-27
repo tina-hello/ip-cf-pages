@@ -5,6 +5,7 @@ export const onRequestGet = async ({ request}) =>
     const clientIP = request.headers.get('CF-Connecting-IP');
     const clientASN = request.cf.asn;
     const clientISP = request.cf.asOrganization;
+    const cloudflareColo = request.cf.colo;
     const clientCO = request.cf.country;
     const clientCI = request.cf.city;
     const clientRE = request.cf.region;
@@ -16,6 +17,7 @@ export const onRequestGet = async ({ request}) =>
     return new Response("Public IP: " + clientIP + "\n" +
         "ASN: " + clientASN + "\n" +
         "ISP: " + clientISP + "\n" +
+        "Cloudflare Data Center: " + cloudflareColo + "\n" +
         "Country: " + clientCO + "\n" +
         "City: " + clientCI + "\n" +
         "Region: " + clientRE + "\n" +
