@@ -16,7 +16,7 @@ export const onRequestGet = async ({
   const clientLON = request.cf.longitude;
   const clientPC = request.cf.postalCode;
   const clientTZ = request.cf.timezone;
-  if (clientUA.contains('Mozilla')) {
+  if (clientUA.includes("Mozilla")) {
     return new Response('Public IP: ${clientIP}\n'
             + 'ASN: ${clientASN}\n'
             + 'ISP: ${clientISP}\n'
@@ -36,20 +36,20 @@ export const onRequestGet = async ({
   }
   else { 
     return new Response(
-    '"ip": "${clientIP}"\n'
-            + '"asn": "${clientASN}"\n'
-            + '"isp": "${clientISP}"\n'
-            + '"cf-dc": "${cloudflareColo}"\n'
-            + '"protocol": "${httpProtocol}"\n'
-            + '"cipher: "${tlsCipher}"\n'
-            + '"tls-version${tlsVersion}\n'
-            + '"country": "${clientCO}"\n'
-            + '"city": "${clientCI}"\n'
-            + '"region": "${clientRE}"\n'
-            + '"loc": "${clientLAT},${clientLON}"\n'
-            + '"postal": "${clientPC}"\n'
-            + '"timezone": "${clientTZ}"\n'
-            + '"user-agent": "${clientUA}"\n',
+    '{\n "ip": "${clientIP}"\n'
+            + ' "asn": "${clientASN}"\n'
+            + ' "isp": "${clientISP}"\n'
+            + ' "cf-dc": "${cloudflareColo}"\n'
+            + ' "protocol": "${httpProtocol}"\n'
+            + ' "cipher: "${tlsCipher}"\n'
+            + ' "tls-version${tlsVersion}\n'
+            + ' "country": "${clientCO}"\n'
+            + ' "city": "${clientCI}"\n'
+            + ' "region": "${clientRE}"\n'
+            + ' "loc": "${clientLAT},${clientLON}"\n'
+            + ' "postal": "${clientPC}"\n'
+            + ' "timezone": "${clientTZ}"\n'
+            + ' "user-agent": "${clientUA}"\n}\n',
 
     {
       status: 200,
