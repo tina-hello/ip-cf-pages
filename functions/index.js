@@ -34,7 +34,8 @@ export const onRequestGet = async ({
       status: 200,
     });
   }
-  return new Response(
+  else { 
+    return new Response(
     '"ip": "${clientIP}"\n'
             + '"asn": "${clientASN}"\n'
             + '"isp": "${clientISP}"\n'
@@ -54,4 +55,5 @@ export const onRequestGet = async ({
       status: 200,
     },
   );
+  }
 };
