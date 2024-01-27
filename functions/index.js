@@ -6,6 +6,7 @@ export const onRequestGet = async ({ request}) =>
     const clientASN = request.cf.asn;
     const clientISP = request.cf.asOrganization;
     const cloudflareColo = request.cf.colo;
+    const httpProtocol = request.cf.httpProtocol;
     const clientCO = request.cf.country;
     const clientCI = request.cf.city;
     const clientRE = request.cf.region;
@@ -18,6 +19,7 @@ export const onRequestGet = async ({ request}) =>
         "ASN: " + clientASN + "\n" +
         "ISP: " + clientISP + "\n" +
         "Cloudflare Data Center: " + cloudflareColo + "\n" +
+        "HTTP Protocol: " + httpProtocol + "\n" +
         "Country: " + clientCO + "\n" +
         "City: " + clientCI + "\n" +
         "Region: " + clientRE + "\n" +
